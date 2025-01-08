@@ -7,7 +7,7 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
@@ -18,10 +18,26 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease; /* Smooth transition */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+body.dark {
+  background-color: #121212; /* Dark background for the entire page */
+  color: text-yellow-500; /* Light text color */
+
+  @layer utilities {
+    .text-balance {
+      text-wrap: balance;
+    }
   }
+}
+
+.glow {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.glow:hover {
+  box-shadow: 0 0 15px rgba(0, 50, 255, 0.8);
 }
